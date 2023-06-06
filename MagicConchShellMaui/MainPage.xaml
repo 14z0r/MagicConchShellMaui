@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:mct="clr-namespace:CommunityToolkit.Maui.Behaviors;assembly=CommunityToolkit.Maui"
+             x:Class="MagicConchShellMaui.MainPage"
+             BackgroundImageSource="mmbackground.jpg" 
+             MaximumHeightRequest="1280" 
+             MaximumWidthRequest="720" Loaded="ContentPage_Loaded">
+    <ContentPage.Behaviors>
+        <mct:StatusBarBehavior StatusBarColor="CornflowerBlue" />
+    </ContentPage.Behaviors>
+    <Grid Margin="16" x:Name="MainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <ImageButton 
+            Margin="0,120,0,0"
+            VerticalOptions="Start"
+            MaximumHeightRequest="320"
+            BackgroundColor="Transparent"
+            Source="magicconchshell.png" 
+            Command="{Binding ListenCommand}"/>
+        <Entry Grid.Row="1" 
+               Margin="0,8,0,8"
+               Text="{Binding Question}" 
+               HeightRequest="80" 
+               Placeholder="Stelle hier deine Frage." 
+               ReturnCommand="{Binding EvaluateCommand}"
+               BackgroundColor="White"
+               TextColor="CornflowerBlue"
+               FontSize="20"
+               VerticalTextAlignment="Center" 
+               HorizontalTextAlignment="Center" PlaceholderColor="#6495ED"/>
+
+        <Button Grid.Row="2" Text="Frage stellen" Command="{Binding EvaluateCommand}" TextColor="CornflowerBlue" BackgroundColor="White" FontSize="20"></Button>
+    </Grid>
+</ContentPage>
